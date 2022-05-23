@@ -16,7 +16,7 @@ export class CuerpoComponent implements OnInit {
         ataque: 95,
         defensa: 93,
         poder: 350,
-        vida: 100,
+        vida: 0,
         honor: -50
       },
       {

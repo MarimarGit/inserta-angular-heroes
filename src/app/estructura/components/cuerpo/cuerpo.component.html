@@ -19,10 +19,14 @@
               <ng-container >
                 <ul class="list-group">
                   <ng-container *ngFor="let heroe of lista; let i = index">
-                    <li class="list-group-item">
+                    <li *ngIf="heroe.vida > 0" class="list-group-item">
                       {{ heroe.nombre }}
 
-                      <span class="badge bg-info text-light me-1">
+                      <span class="badge text-light me-1" [class]="
+                      {
+                        'bg-success': heroe.vida > 0 ,
+                        'bg-danger': heroe.vida <= 0
+                      }">
                         Vida: {{ heroe.vida }}
                       </span>
 
