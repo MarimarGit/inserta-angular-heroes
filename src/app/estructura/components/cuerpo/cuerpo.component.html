@@ -1,0 +1,50 @@
+<main>
+  <section class="container-fluid">
+    <!-- 1 fila, 3 columnas -->
+    <div class="row">
+      <!-- columna izquierda -->
+      <div class="col"></div>
+      <!-- columna central -->
+      <div class="col-12 col-sm-8 col-md-6 col-lg-6 col-xl-4">
+        <!-- Tarjeta -->
+        <div id="tarjeta" class="card shadow">
+          <img class="card-img-top" src="/assets/img/banner.jpg" alt="banner" />
+          <div class="card-body">
+            <h5 class="card-title">Lista de héroes</h5>
+            <div class="card-text">
+              <div *ngIf="lista.length === 0" class="alert alert-warning">
+                <span>No hay elementos que mostrar</span>
+              </div>
+              <!-- <code *ngIf="lista.length > 0">{{ lista | json }}</code> -->
+              <ng-container >
+                <ul class="list-group">
+                  <ng-container *ngFor="let heroe of lista; let i = index">
+                    <li class="list-group-item">
+                      {{ heroe.nombre }}
+
+                      <span class="badge bg-info text-light me-1">
+                        Vida: {{ heroe.vida }}
+                      </span>
+
+                      <span class="badge text-ligh" [class]="
+                        {
+                          'bg-success': heroe.honor >= 0 ,
+                          'bg-danger': heroe.honor < 0
+                        }
+                        ">
+                          Honor: {{ heroe.honor }}
+                      </span>
+
+                    </li>
+                  </ng-container>
+                </ul>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- columna derecha -->
+      <div class="col"></div>
+    </div>
+  </section>
+</main>
