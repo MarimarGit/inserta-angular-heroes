@@ -9,11 +9,10 @@ import { Heroe } from '../../models/heroe.model';
 })
 export class CuerpoComponent implements OnInit {
   public lista: Heroe[];
-  private _heroesService : HeroesService;
   public heroeElegido : Heroe | null;
+  public urlBase = '';
 
-  constructor(heroesService: HeroesService) {
-    this._heroesService = heroesService;
+  constructor( private _heroesService: HeroesService) {
     this.lista = [];
     //inicializo heroeElegido
     this.heroeElegido = null;
@@ -26,6 +25,7 @@ export class CuerpoComponent implements OnInit {
     //hacer tareas pesadas desde el constructor
     this.lista = this._heroesService.getHeroes();
     this.heroeElegido = this._heroesService.getHeroe(1);
+    this.urlBase = this._heroesService.urlBase;
   }
 
 }

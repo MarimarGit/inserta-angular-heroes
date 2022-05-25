@@ -43,7 +43,7 @@
                           [src]="
                             heroe.imagen
                               ? heroe.imagen
-                              : 'https://borilio.github.io/curso-angular/img/avatars/defaultheroe.svg'
+                              : urlBase +  'defaultheroe.svg'
                           "
                           width="20 rem"
                           [alt]="'Avatar de ' + heroe.nombre"
@@ -65,7 +65,7 @@
                         <span class="badge bg-info">{{ lista.length }}</span
                         ><span> personajes</span>
                       </td>
-                      <td *ngIf="heroeElegido != null" colspan="4">
+                      <td *ngIf="heroeElegido != null" colspan="5">
                         Héroe aleatorio: {{ heroeElegido.nombre }}
                       </td>
                     </tr>
