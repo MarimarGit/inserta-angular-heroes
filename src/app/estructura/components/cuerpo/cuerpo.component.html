@@ -21,6 +21,7 @@
                 <table class="table table-hover">
                   <thead class="bg-dark text-light">
                     <tr>
+                      <th>Imagen</th>
                       <th>Nombre</th>
                       <th>Poder</th>
                       <th>Honor</th>
@@ -30,13 +31,26 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let heroe of lista"
-                    [class]="{
-                      'table-info': heroe.honor > 70,
-                      'table-danger': heroe.honor <= -70
-                    }" >
+                    <tr class="align-middle"
+                      *ngFor="let heroe of lista"
+                      [class]="{
+                        'table-info': heroe.honor > 70,
+                        'table-danger': heroe.honor <= -70
+                      }"
+                    >
+                      <td>
+                        <img
+                          [src]="
+                            heroe.imagen
+                              ? heroe.imagen
+                              : 'https://borilio.github.io/curso-angular/img/avatars/defaultheroe.svg'
+                          "
+                          width="20 rem"
+                          [alt]="'Avatar de ' + heroe.nombre"
+                        />
+                      </td>
                       <td>{{ heroe.nombre }}</td>
-                      <td [class.table-warning]=" heroe.poder > 200">
+                      <td [class.table-warning]="heroe.poder > 200">
                         {{ heroe.poder }}
                       </td>
                       <td>{{ heroe.honor }}</td>
@@ -45,7 +59,17 @@
                       <td>{{ heroe.vida }}</td>
                     </tr>
                   </tbody>
-                  <tfoot></tfoot>
+                  <tfoot>
+                    <tr>
+                      <td colspan="2">
+                        <span class="badge bg-info">{{ lista.length }}</span
+                        ><span> personajes</span>
+                      </td>
+                      <td *ngIf="heroeElegido != null" colspan="4">
+                        Héroe aleatorio: {{ heroeElegido.nombre }}
+                      </td>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
             </div>
