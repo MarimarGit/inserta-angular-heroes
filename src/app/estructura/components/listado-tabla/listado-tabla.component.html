@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="align-middle"
+            <tr (click)="seleccionarFavorito(heroe)"  class="align-middle"
               *ngFor="let heroe of lista"
               [class]="{
                 'table-info': heroe.honor > 70,
@@ -57,9 +57,9 @@
                 <span class="badge bg-info">{{ lista.length }}</span
                 ><span> personajes</span>
               </td>
-              <!-- <td *ngIf="heroeElegido != null" colspan="5">
+              <td *ngIf="heroeElegido != null" colspan="5">
                 Héroe aleatorio: {{ heroeElegido.nombre }}
-              </td> -->
+              </td>
             </tr>
           </tfoot>
         </table>

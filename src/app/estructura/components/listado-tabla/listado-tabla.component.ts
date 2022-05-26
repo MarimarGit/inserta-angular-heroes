@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HeroesService } from 'src/app/shared/services/heroes.service';
 import { Heroe } from '../../models/heroe.model';
 
@@ -11,6 +11,10 @@ export class ListadoTablaComponent implements OnInit {
   public lista: Heroe[];
   public heroeElegido : Heroe | null;
   public urlBase = '';
+
+  //Creamos el evento que se propagará al ejecutar la función seleccionarFavorito()
+  @Output()
+  public eventoFavorito = new EventEmitter<Heroe>();
 
   constructor( private _heroesService: HeroesService) {
     this.lista = [];
@@ -26,6 +30,11 @@ export class ListadoTablaComponent implements OnInit {
     this.lista = this._heroesService.getHeroes();
     this.heroeElegido = this._heroesService.getHeroe(1);
     this.urlBase = this._heroesService.urlBase;
+  }
+
+  public seleccionarFavorito(heroe: Heroe): void {
+    console.log ("El hijo le dice al padre... mi héroe favorito es " + heroe.nombre);
+    this.eventoFavorito.emit(heroe);
   }
 
 }

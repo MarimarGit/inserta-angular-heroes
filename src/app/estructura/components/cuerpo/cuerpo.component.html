@@ -3,10 +3,21 @@
     <!-- 1 fila, 3 columnas -->
     <div class="row">
       <!-- columna izquierda -->
-      <div class="col"></div>
+      <div class="col">
+
+        <div *ngIf="heroeFavorito" id="favorito" class="text-center sticky-top">
+          <div class="alert alert-warning">
+            <img [src]="heroeFavorito.imagen ? heroeFavorito.imagen : 'https://borilio.github.io/curso-angular/img/avatars/defaultheroe.svg'"  width="50rem" alt="">
+            <h4><i class="bi bi-star"></i> {{ heroeFavorito?.nombre}}</h4>
+            <hr/>
+            <button (click)="this.heroeFavorito = null" class="btn btn-warning">Borrar</button>
+          </div>
+        </div>
+
+      </div>
       <!-- columna central -->
       <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-6">
-        <app-listado-tabla></app-listado-tabla>
+        <app-listado-tabla (eventoFavorito)="procesarFavorito($event)"></app-listado-tabla>
       </div>
       <!-- columna derecha -->
       <div class="col"></div>
