@@ -1,0 +1,69 @@
+<!-- Tarjeta -->
+<div id="tarjeta" class="card shadow">
+  <img class="card-img-top" src="/assets/img/banner.jpg" alt="banner" />
+  <div class="card-body">
+    <h5 class="card-title">Lista de héroes</h5>
+    <div class="card-text">
+      <div *ngIf="lista.length === 0" class="alert alert-warning">
+        <span>No hay elementos que mostrar</span>
+      </div>
+      <!-- <code *ngIf="lista.length > 0">{{ lista | json }}</code> -->
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="bg-dark text-light">
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Poder</th>
+              <th>Honor</th>
+              <th>Ataque</th>
+              <th>Defensa</th>
+              <th>Vida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="align-middle"
+              *ngFor="let heroe of lista"
+              [class]="{
+                'table-info': heroe.honor > 70,
+                'table-danger': heroe.honor <= -70
+              }"
+            >
+              <td>
+                <img
+                  [src]="
+                    heroe.imagen
+                      ? heroe.imagen
+                      : urlBase +  'defaultheroe.svg'
+                  "
+                  width="20 rem"
+                  [alt]="'Avatar de ' + heroe.nombre"
+                />
+              </td>
+              <td>{{ heroe.nombre }}</td>
+              <td [class.table-warning]="heroe.poder > 200">
+                {{ heroe.poder }}
+              </td>
+              <td>{{ heroe.honor }}</td>
+              <td>{{ heroe.ataque }}</td>
+              <td>{{ heroe.defensa }}</td>
+              <td>{{ heroe.vida }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">
+                <span class="badge bg-info">{{ lista.length }}</span
+                ><span> personajes</span>
+              </td>
+              <!-- <td *ngIf="heroeElegido != null" colspan="5">
+                Héroe aleatorio: {{ heroeElegido.nombre }}
+              </td> -->
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

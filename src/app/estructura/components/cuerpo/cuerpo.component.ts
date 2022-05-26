@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService } from 'src/app/shared/services/heroes.service';
-import { Heroe } from '../../models/heroe.model';
 
 @Component({
   selector: 'app-cuerpo',
@@ -8,24 +6,15 @@ import { Heroe } from '../../models/heroe.model';
   styleUrls: ['./cuerpo.component.css']
 })
 export class CuerpoComponent implements OnInit {
-  public lista: Heroe[];
-  public heroeElegido : Heroe | null;
-  public urlBase = '';
 
-  constructor( private _heroesService: HeroesService) {
-    this.lista = [];
-    //inicializo heroeElegido
-    this.heroeElegido = null;
+
+  constructor() {
+
 
   }
 
-  //El método ngOnInit se ejecuta inmediatamente después del constructor()
   ngOnInit(): void {
-    //Hacemos la llamada al servicio desde el ngOnInit, ya que no se aconseja
-    //hacer tareas pesadas desde el constructor
-    this.lista = this._heroesService.getHeroes();
-    this.heroeElegido = this._heroesService.getHeroe(1);
-    this.urlBase = this._heroesService.urlBase;
+
   }
 
 }

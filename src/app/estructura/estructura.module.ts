@@ -4,6 +4,7 @@ import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
 import { PieComponent } from './components/pie/pie.component';
 import { PagePrincipalComponent } from './components/page-principal/page-principal.component';
+import { ListadoTablaComponent } from './components/listado-tabla/listado-tabla.component';
 
 
 
@@ -12,7 +13,9 @@ import { PagePrincipalComponent } from './components/page-principal/page-princip
     CabeceraComponent,
     CuerpoComponent,
     PieComponent,
-    PagePrincipalComponent
+    PagePrincipalComponent,
+    ListadoTablaComponent
+
   ],
   imports: [
     CommonModule
