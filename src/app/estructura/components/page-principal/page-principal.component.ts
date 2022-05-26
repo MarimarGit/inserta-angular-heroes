@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-principal.component.css']
 })
 export class PagePrincipalComponent implements OnInit {
+  public year_padre: number = 1983;
 
   constructor() { }
 
