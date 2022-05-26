@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
+  public hoy: Date;
 
-  constructor() { }
+  constructor() {
+    this.hoy = new Date();
+   }
 
   ngOnInit(): void {
+
+    this.hoy = new Date();
+    setInterval(() => {
+      this.hoy= new Date();
+    }, 1000);
+
   }
 
 }
