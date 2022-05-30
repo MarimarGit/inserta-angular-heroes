@@ -25,6 +25,7 @@ export class HeroesService {
       new Heroe('Caballero Luna', 130, 0, 100, 100, 100, '')
     ];
 
+
     return lista;
   }
 

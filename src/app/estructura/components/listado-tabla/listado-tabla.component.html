@@ -10,16 +10,17 @@
       <!-- <code *ngIf="lista.length > 0">{{ lista | json }}</code> -->
 
       <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover small">
           <thead class="bg-dark text-light">
             <tr>
               <th>Imagen</th>
               <th>Nombre</th>
               <th>Poder</th>
+              <th>Peligroso</th>
               <th>Honor</th>
               <th>Ataque</th>
               <th>Defensa</th>
-              <th>Vida</th>
+              <th class="d-none d-md-block">Vida</th>
             </tr>
           </thead>
           <tbody>
@@ -45,15 +46,16 @@
               <td [class.table-warning]="heroe.poder > 200">
                 {{ heroe.poder }}
               </td>
+              <td>{{ heroe | esPeligroso }}</td>
               <td>{{ heroe.honor }}</td>
               <td>{{ heroe.ataque }}</td>
               <td>{{ heroe.defensa }}</td>
-              <td>{{ heroe.vida }}</td>
+              <td class="d-none d-md-block">{{ heroe.vida }}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="2">
+              <td colspan="3">
                 <span class="badge bg-info">{{ lista.length }}</span
                 ><span> personajes</span>
               </td>
