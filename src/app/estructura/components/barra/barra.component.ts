@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class BarraComponent implements OnInit {
 
+  //TODO: arreglar el atributo ancho que debería llamarse alto
+
   @Input() public texto :string="";
 
   @Input() public color :string="bg-primary";

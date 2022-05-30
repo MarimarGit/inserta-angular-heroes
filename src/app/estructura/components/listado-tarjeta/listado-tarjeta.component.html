@@ -6,10 +6,10 @@
     <div
       class="card my-3"
       [class.shadow]="true"
-      [class.border]="heroe.esVillano() || heroe.esPoderoso()"
-      [class.border-4]="heroe.esVillano() || heroe.esPoderoso()"
-      [class.border-info]="heroe.esPoderoso() && !heroe.esVillano()"
-      [class.border-danger]="heroe.esVillano()"
+      [class.border]="heroe.honor < -50 || heroe.poder > 200"
+      [class.border-4]="heroe.honor < -50 || heroe.poder > 200"
+      [class.border-info]="heroe.poder > 200"
+      [class.border-danger]="heroe.honor < -50"
     >
       <!-- Creamos dos columnas para hacerla horizontal -->
       <div class="row g-0">
