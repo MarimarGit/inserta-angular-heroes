@@ -9,16 +9,15 @@ import { Heroe } from '../../models/heroe.model';
 })
 export class ListadoTarjetaComponent implements OnInit {
 
-  public heroes: Heroe[];
-  public heroeService: HeroesService;
+  public heroes?: Heroe[];
 
-  constructor(heroesService: HeroesService) {
-    this.heroeService = heroesService;
-    this.heroes = this.heroeService.getHeroes();
+  constructor(private _heroesService: HeroesService) {
+
   }
 
-
   ngOnInit(): void {
+    this.heroes = this._heroesService.getHeroes();
+    console.log("Arrancamos el componente ListadoTarjetaComponent");
   }
 
 }

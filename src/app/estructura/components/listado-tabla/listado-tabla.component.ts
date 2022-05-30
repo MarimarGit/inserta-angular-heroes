@@ -30,6 +30,7 @@ export class ListadoTablaComponent implements OnInit {
     this.lista = this._heroesService.getHeroes();
     this.heroeElegido = this._heroesService.getHeroe(1);
     this.urlBase = this._heroesService.urlBase;
+    console.log("Arrancamos el componente ListadoTablaComponent");
   }
 
   public seleccionarFavorito(heroe: Heroe): void {
