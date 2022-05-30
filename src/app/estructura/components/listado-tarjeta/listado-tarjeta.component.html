@@ -1,1 +1,76 @@
-<p>listado-tarjeta works!</p>
+<!-- Grupo de tarjetas -->
+<!-- En próximas actualizaciones podemos reordenar las tarjetas-->
+<div>
+  <!-- Cada tarjeta individual -->
+  <ng-container *ngFor="let heroe of heroes">
+    <div
+      class="card my-3"
+      [class.shadow]="true"
+      [class.border]="heroe.esVillano() || heroe.esPoderoso()"
+      [class.border-4]="heroe.esVillano() || heroe.esPoderoso()"
+      [class.border-info]="heroe.esPoderoso() && !heroe.esVillano()"
+      [class.border-danger]="heroe.esVillano()"
+    >
+      <!-- Creamos dos columnas para hacerla horizontal -->
+      <div class="row g-0">
+        <!-- col1 Imagen -->
+        <div class="col-4 text-center">
+          <img
+            class="m-3 w-50 rounded-circle"
+            alt="Tarjeta del héroe {{heroe.nombre}}"
+            [src]="heroe.imagen ? heroe.imagen : 'https://borilio.github.io/curso-angular/img/avatars/defaultheroe.svg'"
+          />
+        </div>
+        <!-- col2 Resto de datos -->
+        <div class="col-8">
+          <div class="card-body">
+            <h3 class="card-title">{{heroe.nombre}}</h3>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <app-barra
+                  [texto]="'❤ Vida (' + heroe.vida + ')'"
+                  [valor]="heroe.vida"
+                  [ancho]="'2rem'"
+                  [fuente]="5"
+                  [color]="'bg-danger'"
+                ></app-barra>
+              </li>
+              <li class="list-group-item">
+                <app-barra
+                  [texto]="'👊🏼 Ataque (' + heroe.ataque + ')'"
+                  [valor]="heroe.ataque"
+                  [ancho]="'1.5rem'"
+                  [fuente]="6"
+                  [color]="'bg-success'"
+                ></app-barra>
+              </li>
+              <li class="list-group-item">
+                <app-barra
+                  [texto]="'🛡 Defensa (' + heroe.defensa + ')'"
+                  [valor]="heroe.defensa"
+                  [ancho]="'1.5rem'"
+                  [fuente]="6"
+                  [color]="'bg-warning'"
+                ></app-barra>
+              </li>
+              <li class="list-group-item">
+                <app-barra
+                  [texto]="'⚡ Poder (' + heroe.poder + ')'"
+                  [valor]="heroe.poder"
+                  [max]="400"
+                  [ancho]="'1.5rem'"
+                  [fuente]="6"
+                  [color]="'bg-info'"
+                ></app-barra>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <p>Aquí pondremos acciones</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
+

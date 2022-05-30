@@ -1,0 +1,12 @@
+<div class="progress mt-3 {{'fs-' + this.fuente}}" [style.height]="this.ancho">
+  <div
+      role="progressbar"
+      class="progress-bar"
+      [class]="[this.color, 'text-start']"
+      [style.width]="((this.valor * 100) / this.max) + '%'"
+      [attr.aria-valuenow]="this.valor"
+      [attr.aria-valuemin]="this.min"
+      [attr.aria-valuemax]="this.max">
+      {{this.texto}}
+  </div>
+</div>

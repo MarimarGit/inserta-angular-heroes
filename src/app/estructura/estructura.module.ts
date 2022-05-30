@@ -5,9 +5,11 @@ import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
 import { PieComponent } from './components/pie/pie.component';
 import { PagePrincipalComponent } from './components/page-principal/page-principal.component';
 import { ListadoTablaComponent } from './components/listado-tabla/listado-tabla.component';
-import { SharedModule } from '../shared/shared.module';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { ListadoTarjetaComponent } from './components/listado-tarjeta/listado-tarjeta.component';
+import { HomeComponent } from './components/home/home.component';
+import { SharedModule } from '../shared/shared.module';
+import { BarraComponent } from './components/barra/barra.component';
 
 
 
@@ -19,7 +21,9 @@ import { ListadoTarjetaComponent } from './components/listado-tarjeta/listado-ta
     PagePrincipalComponent,
     ListadoTablaComponent,
     NavegacionComponent,
-    ListadoTarjetaComponent
+    ListadoTarjetaComponent,
+    HomeComponent,
+    BarraComponent
 
   ],
   imports: [

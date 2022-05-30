@@ -15,51 +15,33 @@
             <tr>
               <th>Imagen</th>
               <th>Nombre</th>
-              <th>Poder</th>
-              <th>Peligroso</th>
-              <th>Honor</th>
-              <th>Ataque</th>
-              <th>Defensa</th>
-              <th class="d-none d-md-block">Vida</th>
+              <th>Vida</th>
             </tr>
           </thead>
           <tbody>
             <tr (click)="seleccionarFavorito(heroe)"  class="align-middle"
-              *ngFor="let heroe of lista"
-              [class]="{
-                'table-info': heroe.honor > 70,
-                'table-danger': heroe.honor <= -70
-              }"
-            >
+              *ngFor="let heroe of lista">
               <td>
                 <img
                   [src]="
                     heroe.imagen
                       ? heroe.imagen
-                      : urlBase +  'defaultheroe.svg'
-                  "
+                      : urlBase +  'defaultheroe.svg' "
                   width="20 rem"
                   [alt]="'Avatar de ' + heroe.nombre"
                 />
               </td>
               <td>{{ heroe.nombre }}</td>
-              <td [class.table-warning]="heroe.poder > 200">
-                {{ heroe.poder }}
-              </td>
-              <td>{{ heroe | esPeligroso }}</td>
-              <td>{{ heroe.honor }}</td>
-              <td>{{ heroe.ataque }}</td>
-              <td>{{ heroe.defensa }}</td>
-              <td class="d-none d-md-block">{{ heroe.vida }}</td>
+              <td>{{ heroe.vida }}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="3">
+              <td>
                 <span class="badge bg-info">{{ lista.length }}</span
                 ><span> personajes</span>
               </td>
-              <td *ngIf="heroeElegido != null" colspan="5">
+              <td *ngIf="heroeElegido != null" colspan="2">
                 Héroe aleatorio: {{ heroeElegido.nombre }}
               </td>
             </tr>
