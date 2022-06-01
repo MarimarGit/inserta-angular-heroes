@@ -14,7 +14,7 @@ export class BarraComponent implements OnInit {
 
   @Input() public color :string="bg-primary";
 
-  @Input() public ancho :string="1rem";
+  @Input() public alto :string="1rem";
 
   @Input() public fuente :number=7; //Por defecto es 7, y como no existe fs-7, no aplica nada. Si recibe un número de 1 al 6, lo aplica
 
