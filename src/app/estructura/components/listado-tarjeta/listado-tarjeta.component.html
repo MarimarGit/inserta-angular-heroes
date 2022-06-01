@@ -1,6 +1,17 @@
 <!-- Grupo de tarjetas -->
 <!-- En próximas actualizaciones podemos reordenar las tarjetas-->
+<div *ngIf="cargando" id="cargando">
+  <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Obteniendo información...</span>
+  </div>
+</div>
+
 <div>
+  <div *ngIf="this.error" class="alert alert-danger">
+    <span class="fw-bold">{{ this.error.status }}</span>
+    <span>Hubo un error en la petición ajax</span>
+  </div>
+
   <!-- Cada tarjeta individual -->
   <ng-container *ngFor="let heroe of heroes">
     <div
@@ -9,8 +20,7 @@
       [class.border]="heroe.honor < -50 || heroe.poder > 200"
       [class.border-4]="heroe.honor < -50 || heroe.poder > 200"
       [class.border-info]="heroe.poder > 200"
-      [class.border-danger]="heroe.honor < -50"
-    >
+      [class.border-danger]="heroe.honor < -50" >
       <!-- Creamos dos columnas para hacerla horizontal -->
       <div class="row g-0">
         <!-- col1 Imagen -->
@@ -30,7 +40,7 @@
                 <app-barra
                   [texto]="'❤ Vida (' + heroe.vida + ')'"
                   [valor]="heroe.vida"
-                  [ancho]="'2rem'"
+                  [alto]="'2rem'"
                   [fuente]="5"
                   [color]="'bg-danger'"
                 ></app-barra>
@@ -39,7 +49,7 @@
                 <app-barra
                   [texto]="'👊🏼 Ataque (' + heroe.ataque + ')'"
                   [valor]="heroe.ataque"
-                  [ancho]="'1.5rem'"
+                  [alto]="'1.5rem'"
                   [fuente]="6"
                   [color]="'bg-success'"
                 ></app-barra>
@@ -48,7 +58,7 @@
                 <app-barra
                   [texto]="'🛡 Defensa (' + heroe.defensa + ')'"
                   [valor]="heroe.defensa"
-                  [ancho]="'1.5rem'"
+                  [alto]="'1.5rem'"
                   [fuente]="6"
                   [color]="'bg-warning'"
                 ></app-barra>
@@ -58,7 +68,7 @@
                   [texto]="'⚡ Poder (' + heroe.poder + ')'"
                   [valor]="heroe.poder"
                   [max]="400"
-                  [ancho]="'1.5rem'"
+                  [alto]="'1.5rem'"
                   [fuente]="6"
                   [color]="'bg-info'"
                 ></app-barra>
